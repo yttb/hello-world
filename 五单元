@@ -1,0 +1,352 @@
+//5-1//
+package 五单元;
+import java.util.Scanner;
+public class RepeatAdditionQuiz {
+
+	public static void main(String[] args) {
+		int number1=(int)(Math.random()*10);
+		int number2=(int)(Math.random()*10);
+		Scanner input=new Scanner(System.in);
+		System.out.print("What is "+number1+" + "+number2+"? ");
+		int answer=input.nextInt();
+		while(number1+number2!=answer)
+		{
+			System.out.print("Wrong answer.Try agagin.What is "+number1+" + "+number2+"? ");
+			answer=input.nextInt();
+		}
+        System.out.println("You got it!");
+	}
+
+}
+//5-2//
+package 五单元;
+import java.util.Scanner;
+public class GuessNumberOneTime {
+
+	public static void main(String[] args) {
+		int number=(int)(Math.random()*101);
+		Scanner input=new Scanner(System.in);
+		System.out.println("Guess a magic number between 0 and 100");
+		System.out.print("\nEnter your guess: ");
+		int guess=input.nextInt();
+		if(guess==number)
+			System.out.println("Yes,the number is "+number);
+		else if(guess>number)
+			System.out.println("Your guess is too high");
+		else
+			System.out.println("Your guess is too low");
+
+	}
+
+}
+//5-3//
+package 五单元;
+import java.util.Scanner;
+public class GuessNumber {
+
+	public static void main(String[] args) {
+	int number=(int)(Math.random()*101);
+	Scanner input=new Scanner(System.in);
+	System.out.println("Guess a magic number betweeen 0 and 100");
+	int guess=-1;
+	while(guess!=number)
+	{
+		System.out.print("\nEnter your guess: ");
+		guess=input.nextInt();
+		if(guess==number)
+			System.out.println("Yes,the number is "+number);
+		else if(guess>number)
+			System.out.println("Your guess is too high");
+		else
+			System.out.println("Your guess is too low");
+		
+	}
+
+	}
+
+}
+//5-4//
+package 五单元;
+import java.util.Scanner;
+public class SubtractionQuizLoop {
+
+	public static void main(String[] args) {
+	final int NUMBER_OF_QUESTIONS=5;
+	int correctcount=0;
+	int count=0;
+	long startTime=System.currentTimeMillis();
+	String output=" ";
+	Scanner input=new Scanner(System.in);
+	while(count<NUMBER_OF_QUESTIONS)
+	{
+		int number1=(int)(Math.random()*10);
+		int number2=(int)(Math.random()*10);
+		if(number1<number2)
+		{
+			int temp=number1;
+			number1=number2;
+			number2=temp;
+		}
+		System.out.print("What is "+number1+" - "+number2+"? ");
+		int answer=input.nextInt();
+		if(number1-number2==answer)
+		{
+			System.out.println("You are correct!");
+		    correctcount++;
+		}
+		else
+			System.out.println("Your answer is wrong.\n"+number1+" - "+number2+" should be "
+		+(number1-number2));
+		count++;
+		output+="\n"+number1+"-"+number2+"="+answer+((number1-number2==answer)?"correct":"wrong");
+	}
+    long endTime=System.currentTimeMillis();
+    long testTime=endTime-startTime;
+    System.out.println("Correct count is "+correctcount+"\nTest time is"+testTime/1000
+    		+" seconds\n"+output);
+	}
+
+}
+//5-5//
+package 五单元;
+import java.util.Scanner;
+public class SentinelValue {
+
+	public static void main(String[] args) {
+		Scanner input=new Scanner(System.in);
+		System.out.print("Enter an integer (the input ends if it is is 0): ");
+		int data=input.nextInt();
+        int sum=0;
+        while(data!=0)
+        {
+        	sum+=data;
+        	System.out.println("Enter an integer (the input ends if it is 0): ");
+        	data=input.nextInt();
+        }
+        System.out.println("The sum is "+sum);
+	}
+
+}
+//5-6//
+package 五单元;
+import java.util.Scanner;
+public class TestDoWhile {
+	public static void main(String args[])
+	{
+		int data;
+		int sum=0;
+		Scanner input=new Scanner(System.in);
+		do {
+			System.out.print("Enter an integer (the input ends if it is 0): ");
+			data=input.nextInt();
+			sum+=data;
+		}while(data!=0);
+		System.out.println("The sum is "+sum);
+	}
+   
+}
+//5-7//
+package 五单元;
+import java.util.Scanner;
+public class MultiplicationTable {
+
+	public static void main(String[] args) {
+		System.out.println("          Multication Table");
+		System.out.print("     ");
+		for(int i=1;i<=9;i++)
+		{
+			System.out.print(i+" | ");
+		for(int j=1;j<=9;j++)
+		{
+			System.out.printf("%4d",i*j);
+		}
+		System.out.println();
+		}
+	}
+
+}
+//5-8//
+package 五单元;
+import java.util.Scanner;
+public class TestSum {
+
+	public static void main(String[] args) {
+		float sum=0;
+	    for(float i=0.01f;i<1.0f;i=i+0.01f)
+	    	sum+=i;
+        System.out.println("The sum is "+sum);
+	}
+
+}
+//5-9//
+package 五单元;
+import java.util.Scanner;
+public class GreattestCommonDivisor {
+
+	public static void main(String[] args) {
+		Scanner input=new Scanner(System.in);
+		System.out.print("Enter the first integer: ");
+		int n1=input.nextInt();
+		System.out.print("Enter the second integer: ");
+		int n2=input.nextInt();
+		int gcd=1;
+		int k=2;
+		while(k<=n1&&k<=n2)
+		{
+			if(n1%k==0&&n2%k==0)
+				gcd=k;
+			k++;
+		}
+		System.out.println("The greatest common divisor for "+n1+" and "+n2+" is "+gcd);
+
+	}
+
+}
+//5-10//
+package 五单元;
+import java.util.Scanner;
+public class FutureTuition {
+
+	public static void main(String[] args) {
+		double tuition=10000;
+		int year=0;while(tuition<20000)
+		{
+			tuition=tuition*1.07;
+			year++;
+		}
+        System.out.println("Tuition will be doubles in "+year+" years");
+        System.out.printf("Tuition will be $%.2f in %d years",tuition,year);
+	}
+
+}
+//5-11//
+package 五单元;
+import java.util.Scanner;
+public class Dec2Hex {
+
+	public static void main(String[] args) {
+		Scanner input=new Scanner(System.in);
+		System.out.print("Enter an decimal number: ");
+		int decimal=input.nextInt();
+		String hex="";
+		while(decimal!=0)
+		{
+			int hexValue=decimal%16;
+			char hexDigit=(hexValue<=9&&hexValue>=0)?(char)(hexValue+'0'):(char)(hexValue-10+'A');
+			hex=hexDigit+hex;
+			decimal/=16;
+		}
+System.out.println("The hex number is "+hex);
+	}
+
+}
+//5-12//
+package 五单元;
+
+public class TestBreak {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+          int sum=0;
+          int number=0;
+          while(number<20)
+          {
+        	  number++;
+        	  sum+=number;
+        	  if(sum>=100)
+        		  break;
+          }
+          System.out.println("The number is "+number);
+          System.out.println("The sum is "+sum);
+	}
+
+}
+//5-13//
+package 五单元;
+
+public class TestContinue {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+          int sum=0;
+          int number=0;
+          while(number<20)
+          {
+        	  number++;
+        	  if(number==10||number==11)
+        		  continue;
+        	  sum+=number;
+          }
+          System.out.println("The sum is "+sum);
+	}
+
+}
+//5-14//
+package 五单元;
+import java.util.Scanner;
+public class Palindrome {
+
+	public static void main(String[] args) {
+		Scanner input=new Scanner(System.in);
+		System.out.print("Enter a string: ");
+		String s=input.nextLine();
+		int low=0;
+		int high=s.length()-1;
+		boolean isPalindrome=true;
+		while(low<high)
+		{
+			if(s.charAt(low)!=s.charAt(high))
+			{
+				isPalindrome=false;
+			break;
+		}
+		low++;
+		high++;
+		}
+		if(isPalindrome)
+			System.out.println(s+" is a palindrome");
+		else
+			System.out.println(s+" is not a palindrome");
+	}
+
+}
+//5-15//
+package 五单元;
+import java.util.Scanner;
+public class PrimeNumber {
+
+	public static void main(String[] args) {
+		final int NUMBER_OF_PRIMES=50;
+		final int NUMBER_OF_PRIMES_PER_LINE=10;
+		int count=0;
+		int number=2;
+		System.out.println("The first 50 prime numbers are \n");
+		while(count<NUMBER_OF_PRIMES)
+		{
+			boolean isPrime=true;
+			for(int divisor =2;divisor<=number/2;divisor++)
+			{
+				if(number%divisor==0)
+				{
+					isPrime=false;
+					break;
+				}
+			}
+			if(isPrime)
+			{
+				count++;
+				if(count%NUMBER_OF_PRIMES_PER_LINE==0)
+				{
+					System.out.println(number);
+				}
+				else
+				{
+					System.out.print(number+" ");
+				}
+			}
+			number++;
+		}
+
+	}
+
+}
