@@ -1,0 +1,20 @@
+EfficientClosestPair(P,Q)//分治算法求最近对问题
+if(n<=3) 蛮力求解
+else
+将P的前[n/2]个点分给P1,
+将Q的前[n/2]个点分给Q1,
+将P余下的[n/2]个点复制给Pr,
+将Q余下的[n/2]个点复制给Qr,
+d1->EfficientClosestPair(P1,Q1)
+dr->EfficientClosestPair(Pr,Qr)
+d->min(d1,dr)
+m<-P[n/2-1]x
+将Q中所有|x-m|<d的点复制到数组S[0,num-1]
+dminsq<-dd
+for i <- 0 to num-2 do
+k<-i+1
+while k<=num-1 and (S[k].y-S[i].y)^2<dminsq
+dminsq<-min{dminsq,(S[k].y-S[i].y)^2
++ (S[k].y-S[i].y)^2)
+k<-k+1
+return sqrt(dminsq);
